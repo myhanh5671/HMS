@@ -3,13 +3,13 @@ use HMS;
 /*==============================================================*/
 /* Table: BAC_SI                                                */
 /*==============================================================*/
-insert into BAC_SI (IDBS, HoTenBS, GioiTinhBS, NgaySinhBS, DiaChiBS, SdtBS, Email, ChucVu, ChuyenMon) values
+insert into NHAN_VIEN (IDNV, IDTaiKhoan, HoTenNV, GioiTinhNV, NgaySinhNV, DiaChiNV, SdtNV, Email, ChucVu, ChucDanh, ChuyenMon) values
 	();
 
 /*==============================================================*/
 /* Table: BENH_AN                                               */
 /*==============================================================*/
-insert into BENH_AN (IDBA, NgayKham, ChanDoan, IDBN, SoThe, IDBS) values
+insert into BENH_AN (IDBA, NgayKham, ChanDoan, IDBN, SoThe, IDNV) values
 	();
 
 /*==============================================================*/
@@ -33,19 +33,19 @@ insert into CHI_TIET_DON_THUOC (SoDon, IDThuoc, SoLuong, CachDung) values
 /*==============================================================*/
 /* Table: DON_THUOC                                             */
 /*==============================================================*/
-insert into DON_THUOC (SoDon, IDBS, IDBA, NgayLapDon) values
+insert into DON_THUOC (SoDon, IDNV, IDBA, NgayLapDon) values
 	();
 
 /*==============================================================*/
 /* Table: HINH_ANH_Y_KHOA                                       */
 /*==============================================================*/
-insert into HINH_ANH_Y_KHOA (IDAnh, IDBA, NgayTao, DuongDan, MoTaAnh) values
+insert into HINH_ANH_Y_KHOA (IDAnh, IDNV, IDBA, NgayTao, DuongDan, MoTaAnh) values
 	();
 
 /*==============================================================*/
 /* Table: KET_QUA_XET_NGHIEM                                    */
 /*==============================================================*/
-insert into KET_QUA_XET_NGHIEM (IDKetQua, IDBA, IDXetNghiem, NgayThucHien, ChiTietKetQua) values
+insert into KET_QUA_XET_NGHIEM (IDKetQua, IDNV, IDBA, IDXetNghiem, NgayThucHien, ChiTietKetQua) values
 	();
 
 /*==============================================================*/
@@ -57,7 +57,7 @@ insert into LOAI_THUOC (IDLoaiThuoc, TenLoaiThuoc) values
 /*==============================================================*/
 /* Table: TAI_KHOAN                                             */
 /*==============================================================*/
-insert into TAI_KHOAN (IDTaiKhoan, IDBS, TenDangNhap, MatKhau, Quyen) values
+insert into TAI_KHOAN (IDTaiKhoan, IDNV, TenDangNhap, MatKhau, Quyen) values
 	();
 
 /*==============================================================*/

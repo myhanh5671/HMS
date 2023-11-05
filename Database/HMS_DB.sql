@@ -7,6 +7,7 @@ use HMS;
 create table NHAN_VIEN 
 (
    IDNV                 char(8)                        not null,
+   IDTaiKhoan           char(8)                        null,
    HoTenNV              varchar(45)                    not null,
    GioiTinhNV           boolean                        not null,
    NgaySinhNV           date                           not null,
@@ -165,7 +166,7 @@ create table XET_NGHIEM
 );
 
 alter table BENH_AN
-   add constraint FK_BENHAN_BHYT foreign key (SOTHE) references BHYT (SOTHE);
+   add constraint FK_BENHAN_BHYT foreign key (SoThe) references BHYT (SoThe);
 
 alter table BENH_AN
    add constraint FK_BENHAN_BENHNHAN foreign key (IDBN) references BENH_NHAN (IDBN);
@@ -177,10 +178,10 @@ alter table BHYT
    add constraint FK_BHYT_BENHAN foreign key (IDBA) references BENH_AN (IDBA);
 
 alter table CHI_TIET_DON_THUOC
-   add constraint FK_CTDT_DONTHUOC foreign key (SODON) references DON_THUOC (SODON);
+   add constraint FK_CTDT_DONTHUOC foreign key (SoDon) references DON_THUOC (SoDon);
 
 alter table CHI_TIET_DON_THUOC
-   add constraint FK_CTDT_THUOC foreign key (IDTHUOC) references THUOC (IDTHUOC);
+   add constraint FK_CTDT_THUOC foreign key (IDThuoc) references THUOC (IDThuoc);
 
 alter table DON_THUOC
    add constraint FK_DONTHUOC_BENHAN foreign key (IDBA) references BENH_AN (IDBA);
@@ -201,29 +202,48 @@ alter table KET_QUA_XET_NGHIEM
    add constraint FK_KQXN_NHANVIEN foreign key (IDNV) references NHAN_VIEN (IDNV);
 
 alter table KET_QUA_XET_NGHIEM
-   add constraint FK_KQXN_XETNGHIEM foreign key (IDXETNGHIEM) references XET_NGHIEM (IDXETNGHIEM);
+   add constraint FK_KQXN_XETNGHIEM foreign key (IDXetNghiem) references XET_NGHIEM (IDXetNghiem);
+
+alter table NHAN_VIEN
+   add constraint FK_NHANVIEN_TAIKHOAN foreign key (IDTaiKhoan) references TAI_KHOAN (IDTaiKhoan);
 
 alter table TAI_KHOAN
    add constraint FK_TAIKHOAN_NHANVIEN foreign key (IDNV) references NHAN_VIEN (IDNV);
 
 alter table THUOC
-   add constraint FK_THUOC_LOAITHUOC foreign key (IDLOAITHUOC) references LOAI_THUOC (IDLOAITHUOC);
+   add constraint FK_THUOC_LOAITHUOC foreign key (IDLoaiThuoc) references LOAI_THUOC (IDLoaiThuoc);
+
+
+-- Them, Sua, Xoa table + Print
+-- Ham Tim kiem, Thong ke, Sap xep
 
 /*==============================================================*/
 /* Procedure:                                                   */
 /*==============================================================*/
+DELIMITER $$
+create procedure add_NHANVIEN (IN IDNV char(8), IN HoTenNV varchar(45), IN GioiTinhNV boolean, IN NgaySinhNV date, IN DiaChiNV varchar(100), IN SdtNV char(10), IN Email varchar(45), IN ChucVu varchar(45), IN ChucDanh varchar(45), IN ChuyenMon varchar(100))
+begin
+	insert into NHAN_VIEN values (IDNV, HoTenNV, GioiTinhNV, NgaySinhNV, DiaChiNV, SdtNV, Email, ChucVu, ChucDanh, ChuyenMon);
+end $$
+DELIMITER ;
 
 /*==============================================================*/
 /* Function:                                                    */
 /*==============================================================*/
+DELIMITER $$
+DELIMITER ;
 
 /*==============================================================*/
 /* Cusor:                                                       */
 /*==============================================================*/
+DELIMITER $$
+DELIMITER ;
 
 /*==============================================================*/
 /* Trigger:                                                     */
 /*==============================================================*/
+DELIMITER $$
+DELIMITER ;
 
 /*==============================================================*/
 /* Transaction:                                                 */
